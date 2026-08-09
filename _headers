@@ -1,0 +1,23 @@
+# The root path "/" needs its own rule — a rule for /index.html does NOT
+# match a request for "/". Without this, the edge and the browser can both
+# keep serving a stale copy long after a new deploy.
+
+/
+  Cache-Control: no-store
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/index.html
+  Cache-Control: no-store
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/guide.pdf
+  Cache-Control: public, max-age=3600
