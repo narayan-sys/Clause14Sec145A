@@ -1,0 +1,13 @@
+# Cloudflare Workers — static assets only. There is no Worker script:
+# the files in public/ are served directly.
+#
+# The "directory" line is the important one. It points at public/, which is
+# why .git and the README never get published.
+
+name = "clause14sec145a"
+compatibility_date = "2026-08-09"
+
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
